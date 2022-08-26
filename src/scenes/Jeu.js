@@ -24,7 +24,9 @@ class Guepe extends Phaser.Physics.Arcade.Sprite {
 
     }
 
-	update() {
+
+	preUpdate(time, delta) {
+	     super.preUpdate(time, delta);
 		this.setVelocityX(900)
 	}
 
@@ -60,6 +62,7 @@ class S extends Phaser.Scene {
 		this.editorCreate()
 		this.keyboard = this.input.keyboard.addKeys("up,right,left,down,space,A,Z,E,R,TAB")
 		this.groupeGuepe = this.add.group()
+		this.barre_vie.setScrollFactor(0);
 		const startAnim = 'idle'
 		this.spineBoy = this.createSpineBoy(startAnim)
 		this.platformes = this.physics.add.group({
@@ -251,6 +254,8 @@ class Jeu extends S {
 		this.rectangle_6;
 		/** @type {Phaser.GameObjects.Rectangle} */
 		this.rectangle_7;
+		/** @type {Phaser.GameObjects.Container} */
+		this.barre_vie;
 		/** @type {Phaser.GameObjects.Rectangle} */
 		this.vie;
 
@@ -285,7 +290,9 @@ class Jeu extends S {
 		rectangle_2.isFilled = true;
 
 		// rectangle
-		const rectangle = this.add.rectangle(5051, 368, 128, 128);
+		const rectangle = this.add.rectangle(1936, -206, 128, 128);
+		rectangle.scaleX = 1.562311471077136;
+		rectangle.scaleY = 1.5150110407617778;
 		rectangle.isFilled = true;
 
 		// rectangle_3
@@ -308,21 +315,32 @@ class Jeu extends S {
 		const rectangle_7 = this.add.rectangle(28321.499893760527, 489.6182898597788, 128, 128);
 		rectangle_7.isFilled = true;
 
+		// barre_vie
+		const barre_vie = this.add.container(0, 0);
+
 		// rectangle_8
-		const rectangle_8 = this.add.rectangle(238.05544952030417, 18, 128, 128);
-		rectangle_8.scaleX = 2.5303836012452474;
-		rectangle_8.scaleY = 0.09988673259358266;
+		const rectangle_8 = this.add.rectangle(-400.6985142724708, -709, 128, 128);
+		rectangle_8.scaleX = 12.510914285507356;
+		rectangle_8.scaleY = 0.4336068130918529;
 		rectangle_8.setOrigin(0, 0.5);
 		rectangle_8.isFilled = true;
 		rectangle_8.fillColor = 13638684;
+		barre_vie.add(rectangle_8);
 
 		// vie
-		const vie = this.add.rectangle(239, 18, 128, 128);
-		vie.scaleX = 2.5167755991269636;
-		vie.scaleY = 0.0902069835596794;
+		const vie = this.add.rectangle(-403.94078060112474, -709, 128, 128);
+		vie.scaleX = 12.561574696892574;
+		vie.scaleY = 0.5585114918996077;
 		vie.setOrigin(0, 0.5);
 		vie.isFilled = true;
 		vie.fillColor = 1025578;
+		barre_vie.add(vie);
+
+		// text_2
+		const text_2 = this.add.text(1935, -204, "", {});
+		text_2.setOrigin(0.5, 0.5);
+		text_2.text = "?";
+		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		this.rectangle_1 = rectangle_1;
 		this.rectangle_2 = rectangle_2;
@@ -332,6 +350,7 @@ class Jeu extends S {
 		this.rectangle_5 = rectangle_5;
 		this.rectangle_6 = rectangle_6;
 		this.rectangle_7 = rectangle_7;
+		this.barre_vie = barre_vie;
 		this.vie = vie;
 
 		this.events.emit("scene-awake");
@@ -347,6 +366,7 @@ class Jeu extends S {
 		this.editorCreate()
 		this.keyboard = this.input.keyboard.addKeys("up,right,left,down,space,A,Z,E,R,TAB")
 		this.groupeGuepe = this.add.group()
+		this.barre_vie.setScrollFactor(0);
 		const startAnim = 'idle'
 		this.spineBoy = this.createSpineBoy(startAnim)
 		this.platformes = this.physics.add.group({
