@@ -26,6 +26,58 @@
             "x": 697,
             "y": 24,
             "text": "Abeilles"
+        },
+        {
+            "type": "Rectangle",
+            "id": "36f703ec-3f76-476b-b045-55ebf65cb10c",
+            "label": "rectangle_1",
+            "scope": "PUBLIC",
+            "components": [],
+            "y": 642,
+            "scaleX": 245.77442353486657,
+            "scaleY": 0.46001435037811433,
+            "originX": 0,
+            "isFilled": true,
+            "fillColor": "#2d7447",
+            "fillAlpha": 0.8,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "ee4a34f8-79fa-44bc-b157-b15acd949ef3",
+            "label": "rectangle_2",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 814,
+            "y": 578,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "bfd08e5c-319c-4b6f-8aba-35586f4c7491",
+            "label": "rectangle",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 993,
+            "y": 492,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "836063a0-4a64-48df-80c4-32a5cc1adb12",
+            "label": "rectangle_3",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 1203,
+            "y": 409,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
         }
     ],
     "plainObjects": [],
