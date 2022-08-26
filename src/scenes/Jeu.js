@@ -1,9 +1,42 @@
 
 // You can write more code here
 
+const SPINEBOY_KEY = 'spineboy'
+class S extends Phaser.Scene {
+
+  constructor() {
+    super({
+      key: "Jeu",
+      pack: {
+        files: [{
+          type: 'scenePlugin',
+          key: 'SpinePlugin',
+          url: 'SpinePlugin.min.js',
+          sceneKey: 'spine'
+        }]
+      }
+    });
+
+		/* START-USER-CTR-CODE */
+		// Write your code here.
+		/* END-USER-CTR-CODE */
+	}
+
+	/* START-USER-CODE */
+
+	// Write your code here
+
+	create() {
+		console.log("class sssssssssssssss");
+	}
+
+	/* END-USER-CODE */
+}
+
+
 /* START OF COMPILED CODE */
 
-class Jeu extends Phaser.Scene {
+class Jeu extends S {
 
 	constructor() {
 		super("Jeu");
@@ -18,18 +51,45 @@ class Jeu extends Phaser.Scene {
 
 		// text_1
 		const text_1 = this.add.text(32, 21, "", {});
-		text_1.text = "Jeu";
+		text_1.text = "Jeuxxxxxx";
+
+		// text
+		const text = this.add.text(697, 24, "", {});
+		text.text = "Abeilles";
 
 		this.events.emit("scene-awake");
 	}
 
 	/* START-USER-CODE */
+	preload() {
+		this.load.setPath('assets/spine/images')
+		this.load.spine('spineboy', 'spineboy-pro.json', 'spineboy-pro.atlas')
+	}
 
 	// Write your code here
 
 	create() {
+		console.log("class de base jeu");
+    const startAnim = 'idle'
 
-		this.editorCreate();
+    this.spineBoy = this.createSpineBoy(startAnim)
+
+	}
+
+	createSpineBoy(startAnim = 'idle') {
+		const spineBoy = this.add.spine(1000, 647, SPINEBOY_KEY, startAnim, true)
+		spineBoy.setSize(280, 680);
+		this.physics.add.existing(spineBoy);
+		spineBoy.body.allowGravity = false
+		// spineBoy.body.setOffset(0, 50);
+
+		var anims = spineBoy.getAnimationList();
+		console.log(anims);
+
+		spineBoy.scaleX = 0.5
+		spineBoy.scaleY = 0.5
+
+		return spineBoy
 	}
 
 	/* END-USER-CODE */
@@ -38,3 +98,4 @@ class Jeu extends Phaser.Scene {
 /* END OF COMPILED CODE */
 
 // You can write more code here
+

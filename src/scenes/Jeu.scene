@@ -2,6 +2,8 @@
     "id": "849171ee-7eee-41e9-a12e-dab1139981c7",
     "sceneType": "SCENE",
     "settings": {
+        "javaScriptInitFieldsInConstructor": true,
+        "superClassName": "S",
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
         "sceneKey": "Jeu"
@@ -14,7 +16,16 @@
             "components": [],
             "x": 32,
             "y": 21,
-            "text": "Jeu"
+            "text": "Jeuxxxxxx"
+        },
+        {
+            "type": "Text",
+            "id": "cf34b608-d198-47bb-8b4f-5dfafdca3ae2",
+            "label": "text",
+            "components": [],
+            "x": 697,
+            "y": 24,
+            "text": "Abeilles"
         }
     ],
     "plainObjects": [],
