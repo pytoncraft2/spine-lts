@@ -167,7 +167,7 @@ class Jeu extends S {
 
 	createSpineBoy(startAnim = 'idle') {
 		const spineBoy = this.add.spine(1000, 647, SPINEBOY_KEY, startAnim, true)
-		spineBoy.setSize(280, 680);
+		// spineBoy.setSize(280, 680);
 		this.physics.add.existing(spineBoy);
 		// spineBoy.body.allowGravity = true
 		// spineBoy.body.setOffset(0, 50);
@@ -175,11 +175,11 @@ class Jeu extends S {
 		var anims = spineBoy.getAnimationList();
 		console.log(anims);
 
-		spineBoy.scaleX = 0.5
-		spineBoy.scaleY = 0.5
+		// spineBoy.scaleX = 0.5
+		// spineBoy.scaleY = 0.5
 
 		this.cameras.main.startFollow(spineBoy, true);
-		this.cameras.main.setZoom(0.8)
+		this.cameras.main.setZoom(0.4)
 		// camera.originY = 0.5;
 
 		// camera.originY = 0.5;
@@ -194,8 +194,7 @@ class Jeu extends S {
 	update() {
 		const { right, left, up, down, space, A, Z, E, R, TAB } = this.keyboard
 
-		if (right.isDown) this.spineBoy.body.setVelocityX(300)
-		if (left.isDown) this.spineBoy.body.setVelocityX(-300)
+		if (right.isDown) this.spineBoy.body.setVelocityX(500)
 		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
 
@@ -220,20 +219,22 @@ class Jeu extends S {
 
     if (right.isDown) {
 
+      if (startAnim === 'jump') return;
+
       if (startAnim !== 'walk' && walk2 === false) {
-          this.spineBoy.body.setSize(280, 680)
+        //   this.spineBoy.body.setSize(280, 680)
       if (TAB.isDown) {
-          this.spineBoy.body.setVelocityX(600)
+          this.spineBoy.body.setVelocityX(1000)
           if (startAnim !== 'run') {
           this.spineBoy.play('run')
           }
         } else {
-          this.spineBoy.body.setVelocityX(300)
+          this.spineBoy.body.setVelocityX(500)
           if (startAnim !== 'walk') {
           this.spineBoy.play('walk')
           }
         }
-          this.spineBoy.scaleX = 0.5;
+        //   this.spineBoy.scaleX = 0.5;
         //   this.spineBoy.body.setOffset(0 , 0)
           this.spineBoy.on('complete', (spine) => {
           this.spineBoy.play('idle');
@@ -243,20 +244,22 @@ class Jeu extends S {
     }
 
     if (left.isDown) {
+		
+      if (startAnim === 'jump') return;
       walk2 = true;
       if (startAnim !== 'walk' && walk2 === true) {
       if (TAB.isDown) {
-          this.spineBoy.body.setVelocityX(-600)
+          this.spineBoy.body.setVelocityX(-800)
           if (startAnim !== 'run') {
           this.spineBoy.play('run')
           }
         } else {
-          this.spineBoy.body.setVelocityX(-300)
+          this.spineBoy.body.setVelocityX(-500)
           if (startAnim !== 'walk') {
           this.spineBoy.play('walk')
           }
         }
-          this.spineBoy.scaleX = -0.5;
+        //   this.spineBoy.scaleX = -0.5;
         //   this.spineBoy.body.setOffset(280 , 0)
           this.spineBoy.on('complete', (spine) => {
           this.spineBoy.play('idle');
