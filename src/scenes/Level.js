@@ -43,6 +43,13 @@ class Level extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		const self = this;
+		this.jouer
+			.setInteractive()
+			.on('pointerdown', function () {
+				self.scene.start('Jeu');
+			});
 	}
 
 	/* END-USER-CODE */
