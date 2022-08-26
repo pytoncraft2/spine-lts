@@ -14,9 +14,9 @@
             "id": "6576ff88-b3b5-478c-b07a-18b604b9df44",
             "label": "text_1",
             "components": [],
-            "x": 32,
+            "x": 33,
             "y": 21,
-            "text": "Jeuxxxxxx"
+            "text": "Jeufs"
         },
         {
             "type": "Text",
@@ -25,7 +25,7 @@
             "components": [],
             "x": 697,
             "y": 24,
-            "text": "Abeilles"
+            "text": "Abeilless"
         },
         {
             "type": "Rectangle",
@@ -49,8 +49,8 @@
             "label": "rectangle_2",
             "scope": "PUBLIC",
             "components": [],
-            "x": -361,
-            "y": 467,
+            "x": -321,
+            "y": 409,
             "isFilled": true,
             "width": 128,
             "height": 128
@@ -124,6 +124,37 @@
             "x": 28321.499893760527,
             "y": 489.6182898597788,
             "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "e0ade7dc-f5cb-4471-a93f-87d177fefac7",
+            "label": "rectangle_8",
+            "components": [],
+            "x": 238.05544952030417,
+            "y": 18,
+            "scaleX": 2.5303836012452474,
+            "scaleY": 0.09988673259358266,
+            "originX": 0,
+            "isFilled": true,
+            "fillColor": "#d01c1c",
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "bcb7e90b-2733-4b8d-b0f7-a8531f033a0b",
+            "label": "vie",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 239,
+            "y": 18,
+            "scaleX": 2.5167755991269636,
+            "scaleY": 0.0902069835596794,
+            "originX": 0,
+            "isFilled": true,
+            "fillColor": "#0fa62a",
             "width": 128,
             "height": 128
         }

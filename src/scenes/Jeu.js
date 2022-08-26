@@ -22,8 +22,11 @@ class Guepe extends Phaser.Physics.Arcade.Sprite {
 
         this.body.onWorldBounds = true;
 
-        this.setVelocity(500, -200);
     }
+
+	update() {
+		this.setVelocityX(900)
+	}
 
 }
 
@@ -70,6 +73,21 @@ class S extends Phaser.Scene {
 			this.groupeGuepe.add(g)
 		}
 		this.physics.world.setBoundsCollision(true, true, false, true)
+
+		this.colisionShurikenEnnemie = this.physics.add.collider(this.groupeGuepe, this.spineBoy,
+			function (_boule, _ennemie) {
+				_ennemie.setAlpha(0.1)
+				this.vie.scaleX -= 0.5
+				if (this.vie.scaleX <= 0) {
+					_ennemie.play('death')
+					this.vie.scaleX = 2.5167755991269636;
+				}
+				_boule.destroy(true)
+				this.time.delayedCall(200, () => {
+				_ennemie.setAlpha(1)
+				}, null, this);
+
+			}, null, this);
 
 	}
 
@@ -233,6 +251,8 @@ class Jeu extends S {
 		this.rectangle_6;
 		/** @type {Phaser.GameObjects.Rectangle} */
 		this.rectangle_7;
+		/** @type {Phaser.GameObjects.Rectangle} */
+		this.vie;
 
 
 		/* START-USER-CTR-CODE */
@@ -244,12 +264,12 @@ class Jeu extends S {
 	editorCreate() {
 
 		// text_1
-		const text_1 = this.add.text(32, 21, "", {});
-		text_1.text = "Jeuxxxxxx";
+		const text_1 = this.add.text(33, 21, "", {});
+		text_1.text = "Jeufs";
 
 		// text
 		const text = this.add.text(697, 24, "", {});
-		text.text = "Abeilles";
+		text.text = "Abeilless";
 
 		// rectangle_1
 		const rectangle_1 = this.add.rectangle(0, 642, 128, 128);
@@ -261,7 +281,7 @@ class Jeu extends S {
 		rectangle_1.fillAlpha = 0.8;
 
 		// rectangle_2
-		const rectangle_2 = this.add.rectangle(-361, 467, 128, 128);
+		const rectangle_2 = this.add.rectangle(-321, 409, 128, 128);
 		rectangle_2.isFilled = true;
 
 		// rectangle
@@ -288,6 +308,22 @@ class Jeu extends S {
 		const rectangle_7 = this.add.rectangle(28321.499893760527, 489.6182898597788, 128, 128);
 		rectangle_7.isFilled = true;
 
+		// rectangle_8
+		const rectangle_8 = this.add.rectangle(238.05544952030417, 18, 128, 128);
+		rectangle_8.scaleX = 2.5303836012452474;
+		rectangle_8.scaleY = 0.09988673259358266;
+		rectangle_8.setOrigin(0, 0.5);
+		rectangle_8.isFilled = true;
+		rectangle_8.fillColor = 13638684;
+
+		// vie
+		const vie = this.add.rectangle(239, 18, 128, 128);
+		vie.scaleX = 2.5167755991269636;
+		vie.scaleY = 0.0902069835596794;
+		vie.setOrigin(0, 0.5);
+		vie.isFilled = true;
+		vie.fillColor = 1025578;
+
 		this.rectangle_1 = rectangle_1;
 		this.rectangle_2 = rectangle_2;
 		this.rectangle = rectangle;
@@ -296,6 +332,7 @@ class Jeu extends S {
 		this.rectangle_5 = rectangle_5;
 		this.rectangle_6 = rectangle_6;
 		this.rectangle_7 = rectangle_7;
+		this.vie = vie;
 
 		this.events.emit("scene-awake");
 	}
@@ -323,6 +360,21 @@ class Jeu extends S {
 			this.groupeGuepe.add(g)
 		}
 		this.physics.world.setBoundsCollision(true, true, false, true)
+
+		this.colisionShurikenEnnemie = this.physics.add.collider(this.groupeGuepe, this.spineBoy,
+			function (_boule, _ennemie) {
+				_ennemie.setAlpha(0.1)
+				this.vie.scaleX -= 0.5
+				if (this.vie.scaleX <= 0) {
+					_ennemie.play('death')
+					this.vie.scaleX = 2.5167755991269636;
+				}
+				_boule.destroy(true)
+				this.time.delayedCall(200, () => {
+				_ennemie.setAlpha(1)
+				}, null, this);
+
+			}, null, this);
 
 	}
 
