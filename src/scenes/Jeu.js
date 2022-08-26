@@ -69,11 +69,9 @@ class Jeu extends S {
 	// Write your code here
 
 	create() {
-		console.log("class de base jeu");
-    const startAnim = 'idle'
-
-    this.spineBoy = this.createSpineBoy(startAnim)
-
+		this.keyboard = this.input.keyboard.addKeys("up,right,left,down,space,A,Z,E,R,TAB")
+		const startAnim = 'idle'
+		this.spineBoy = this.createSpineBoy(startAnim)
 	}
 
 	createSpineBoy(startAnim = 'idle') {
@@ -90,6 +88,13 @@ class Jeu extends S {
 		spineBoy.scaleY = 0.5
 
 		return spineBoy
+	}
+
+	update() {
+		const { right, left, up, down, space, A, Z, E, R, TAB } = this.keyboard
+
+		if (right.isDown) this.spineBoy.body.setVelocityX(300)
+		if (left.isDown) this.spineBoy.body.setVelocityX(-300)
 	}
 
 	/* END-USER-CODE */
