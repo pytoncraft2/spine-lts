@@ -1,6 +1,32 @@
 
 // You can write more code here
 
+class Guepe extends Phaser.Physics.Arcade.Sprite {
+
+    constructor (scene, x, y)
+    {
+        super(scene, x, y, 'guepe');
+
+        //  You can either do this:
+        scene.add.existing(this);
+        scene.physics.add.existing(this);
+
+        //  Or this, the end result is the same
+        // scene.sys.displayList.add(this);
+        // scene.sys.updateList.add(this);
+        // scene.sys.arcadePhysics.world.enableBody(this, 0);
+
+        //  Set some default physics properties
+		this.setScale(0.2)
+        this.setBounce(1, 1);
+
+        this.body.onWorldBounds = true;
+
+        this.setVelocity(500, -200);
+    }
+
+}
+
 const SPINEBOY_KEY = 'spineboy'
 class S extends Phaser.Scene {
 
@@ -30,6 +56,7 @@ class S extends Phaser.Scene {
 		console.log("class sssssssssssssss");
 		this.editorCreate()
 		this.keyboard = this.input.keyboard.addKeys("up,right,left,down,space,A,Z,E,R,TAB")
+		this.groupeGuepe = this.add.group()
 		const startAnim = 'idle'
 		this.spineBoy = this.createSpineBoy(startAnim)
 		this.platformes = this.physics.add.group({
@@ -38,6 +65,12 @@ class S extends Phaser.Scene {
 		});
 
 		this.createPlatformes()
+		for (var i = 0; i < 102; i++) {
+			const g = new Guepe(this, Phaser.Math.Between(64, 736), Phaser.Math.Between(100, 500));
+			this.groupeGuepe.add(g)
+		}
+		this.physics.world.setBoundsCollision(true, true, false, true)
+
 	}
 
 	createPlatformes() {
@@ -48,12 +81,15 @@ class S extends Phaser.Scene {
 		this.platformes.addMultiple([p1, p2, p3, p4], true);   // array of game objects
 
 		this.physics.add.collider([p1, p2, p3, p4], this.spineBoy);
+		this.physics.add.collider([p1, p2, p3, p4], this.groupeGuepe);
 
 	}
 
 	preload() {
 		this.load.setPath('assets/spine/images')
 		this.load.spine('spineboy', 'spineboy-pro.json', 'spineboy-pro.atlas')
+		this.load.setPath('assets/')
+		this.load.image('guepe', 'guepe.png')
 	}
 
 	createSpineBoy(startAnim = 'idle') {
@@ -225,7 +261,7 @@ class Jeu extends S {
 		rectangle_1.fillAlpha = 0.8;
 
 		// rectangle_2
-		const rectangle_2 = this.add.rectangle(115, 387, 128, 128);
+		const rectangle_2 = this.add.rectangle(-361, 467, 128, 128);
 		rectangle_2.isFilled = true;
 
 		// rectangle
@@ -273,6 +309,7 @@ class Jeu extends S {
 		console.log("class sssssssssssssss");
 		this.editorCreate()
 		this.keyboard = this.input.keyboard.addKeys("up,right,left,down,space,A,Z,E,R,TAB")
+		this.groupeGuepe = this.add.group()
 		const startAnim = 'idle'
 		this.spineBoy = this.createSpineBoy(startAnim)
 		this.platformes = this.physics.add.group({
@@ -281,6 +318,12 @@ class Jeu extends S {
 		});
 
 		this.createPlatformes()
+		for (var i = 0; i < 102; i++) {
+			const g = new Guepe(this, Phaser.Math.Between(64, 736), Phaser.Math.Between(100, 500));
+			this.groupeGuepe.add(g)
+		}
+		this.physics.world.setBoundsCollision(true, true, false, true)
+
 	}
 
 	createPlatformes() {
@@ -291,12 +334,15 @@ class Jeu extends S {
 		this.platformes.addMultiple([p1, p2, p3, p4], true);   // array of game objects
 
 		this.physics.add.collider([p1, p2, p3, p4], this.spineBoy);
+		this.physics.add.collider([p1, p2, p3, p4], this.groupeGuepe);
 
 	}
 
 	preload() {
 		this.load.setPath('assets/spine/images')
 		this.load.spine('spineboy', 'spineboy-pro.json', 'spineboy-pro.atlas')
+		this.load.setPath('assets/')
+		this.load.image('guepe', 'guepe.png')
 	}
 
 	createSpineBoy(startAnim = 'idle') {
