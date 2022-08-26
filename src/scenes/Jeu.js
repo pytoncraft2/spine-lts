@@ -41,16 +41,16 @@ class S extends Phaser.Scene {
 
 	createSpineBoy(startAnim = 'idle') {
 		const spineBoy = this.add.spine(1000, 647, SPINEBOY_KEY, startAnim, true)
-		spineBoy.setSize(280, 680);
+		// spineBoy.setSize(280, 680);
 		this.physics.add.existing(spineBoy);
-		spineBoy.body.allowGravity = false
+		// spineBoy.body.allowGravity = false
 		// spineBoy.body.setOffset(0, 50);
 
 		var anims = spineBoy.getAnimationList();
 		console.log(anims);
 
-		spineBoy.scaleX = 0.5
-		spineBoy.scaleY = 0.5
+		// spineBoy.scaleX = 0.5
+		// spineBoy.scaleY = 0.5
 
 		return spineBoy
 	}
@@ -58,9 +58,9 @@ class S extends Phaser.Scene {
 	update() {
 		const { right, left, up, down, space, A, Z, E, R, TAB } = this.keyboard
 
-		if (right.isDown) this.spineBoy.body.setVelocityX(300)
-		if (left.isDown) this.spineBoy.body.setVelocityX(-300)
-		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
+		// if (right.isDown) this.spineBoy.body.setVelocityX(300)
+		// if (left.isDown) this.spineBoy.body.setVelocityX(-300)
+		// if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 	}
 
 	/* END-USER-CODE */
@@ -178,6 +178,15 @@ class Jeu extends S {
 		spineBoy.scaleX = 0.5
 		spineBoy.scaleY = 0.5
 
+		this.cameras.main.startFollow(spineBoy, true);
+		this.cameras.main.setZoom(0.8)
+		// camera.originY = 0.5;
+
+		// camera.originY = 0.5;
+
+		this.cameras.main.originY = 0.8
+
+
 
 		return spineBoy
 	}
@@ -188,7 +197,85 @@ class Jeu extends S {
 		if (right.isDown) this.spineBoy.body.setVelocityX(300)
 		if (left.isDown) this.spineBoy.body.setVelocityX(-300)
 		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
-		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-900);
+		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
+
+
+
+
+    // const size = this.animationNames.length
+    const startAnim = this.spineBoy.getCurrentAnimation().name
+    const bounds = this.spineBoy.getBounds()
+    const width = bounds.size.x
+    const height = bounds.size.y
+    let velocityR;
+    let walk2 = false;
+
+    if (A.isDown && startAnim !== 'shoot') {
+      this.spineBoy.play('shoot')
+    }
+
+    // if (TAB.isDown && startAnim !== 'run') {
+      // this.spineBoy.play('run')
+    // }
+
+    if (right.isDown) {
+
+      if (startAnim !== 'walk' && walk2 === false) {
+          this.spineBoy.body.setSize(280, 680)
+      if (TAB.isDown) {
+          this.spineBoy.body.setVelocityX(600)
+          if (startAnim !== 'run') {
+          this.spineBoy.play('run')
+          }
+        } else {
+          this.spineBoy.body.setVelocityX(300)
+          if (startAnim !== 'walk') {
+          this.spineBoy.play('walk')
+          }
+        }
+          this.spineBoy.scaleX = 0.5;
+        //   this.spineBoy.body.setOffset(0 , 0)
+          this.spineBoy.on('complete', (spine) => {
+          this.spineBoy.play('idle');
+          this.spineBoy.body.setVelocityX(0)
+        })
+      }
+    }
+
+    if (left.isDown) {
+      walk2 = true;
+      if (startAnim !== 'walk' && walk2 === true) {
+      if (TAB.isDown) {
+          this.spineBoy.body.setVelocityX(-600)
+          if (startAnim !== 'run') {
+          this.spineBoy.play('run')
+          }
+        } else {
+          this.spineBoy.body.setVelocityX(-300)
+          if (startAnim !== 'walk') {
+          this.spineBoy.play('walk')
+          }
+        }
+          this.spineBoy.scaleX = -0.5;
+        //   this.spineBoy.body.setOffset(280 , 0)
+          this.spineBoy.on('complete', (spine) => {
+          this.spineBoy.play('idle');
+          this.spineBoy.body.setVelocityX(0)
+          walk2 = false;
+        })
+      }
+    }
+
+    if (space.isDown) {
+      if (startAnim !== 'jump') {
+        this.spineBoy.play('jump');
+        this.spineBoy.on('complete', (spine) => {
+          this.spineBoy.play('idle');
+        })
+      }
+    }
+
+
 	}
 
 	/* END-USER-CODE */

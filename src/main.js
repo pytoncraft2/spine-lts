@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
 		parent: 'phaser-example',
 		scale: {
 			mode: Phaser.Scale.CENTER_BOTH,
-			autoCenter: Phaser.Scale.CENTER_BOTH
+			autoCenter: Phaser.Scale.CENTER_BOTH,
 		},
 		backgroundColor: '#1b1e20',
 		width: 1500,
@@ -14,8 +14,8 @@ window.addEventListener('load', function () {
 		physics: {
 			default: 'arcade',
 			arcade: {
-				gravity: { y: 500 },
-				debug: false
+				gravity: { y: 900 },
+				debug: true
 			}
 		},
 		pack: {
