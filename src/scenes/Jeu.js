@@ -138,7 +138,8 @@ class Jeu extends S {
 		console.log("class sssssssssssssss");
 		this.editorCreate()
 		this.platformes = this.physics.add.group({
-			allowGravity: false
+			allowGravity: false,
+			immovable: true
 		});
 
 		this.keyboard = this.input.keyboard.addKeys("up,right,left,down,space,A,Z,E,R,TAB")
