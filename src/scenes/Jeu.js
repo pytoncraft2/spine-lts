@@ -19,6 +19,7 @@ class Guepe extends Phaser.Physics.Arcade.Sprite {
         //  Set some default physics properties
 		this.setScale(0.2)
         this.setBounce(1, 1);
+		this.setFlipX(true)
 
         this.body.onWorldBounds = true;
 
@@ -27,7 +28,7 @@ class Guepe extends Phaser.Physics.Arcade.Sprite {
 
 	preUpdate(time, delta) {
 	     super.preUpdate(time, delta);
-		this.setVelocityX(900)
+		// this.setVelocityX(900)
 	}
 
 }
@@ -72,7 +73,7 @@ class S extends Phaser.Scene {
 
 		this.createPlatformes()
 		for (var i = 0; i < 102; i++) {
-			const g = new Guepe(this, Phaser.Math.Between(64, 736), Phaser.Math.Between(100, 500));
+			const g = new Guepe(this, Phaser.Math.Between(2064, 2736), Phaser.Math.Between(100, 500));
 			this.groupeGuepe.add(g)
 		}
 		this.physics.world.setBoundsCollision(true, true, false, true)
@@ -278,7 +279,7 @@ class Jeu extends S {
 		rectangle_1.fillAlpha = 0.8;
 
 		// rectangle
-		const rectangle = this.add.rectangle(1936, -482, 128, 128);
+		const rectangle = this.add.rectangle(110, -482, 128, 128);
 		rectangle.scaleX = 1.562311471077136;
 		rectangle.scaleY = 1.5150110407617778;
 		rectangle.isFilled = true;
@@ -305,7 +306,7 @@ class Jeu extends S {
 		barre_vie.add(vie);
 
 		// text_2
-		const text_2 = this.add.text(1935, -467, "", {});
+		const text_2 = this.add.text(113, -467, "", {});
 		text_2.setOrigin(0.5, 0.5);
 		text_2.text = "?";
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
@@ -1096,6 +1097,44 @@ class Jeu extends S {
 		ellipse_3.isFilled = true;
 		ellipse_3.fillColor = 3322133;
 
+		// triangle_1
+		const triangle_1 = this.add.triangle(4779, 451, 0, 128, 64, 0, 128, 128);
+		triangle_1.scaleX = 4.6747598735280205;
+		triangle_1.scaleY = 4.6747598735280205;
+		triangle_1.angle = 5;
+		triangle_1.isFilled = true;
+		triangle_1.fillColor = 3644915;
+
+		// rectangle_5
+		const rectangle_5 = this.add.rectangle(5450, 270, 128, 128);
+		rectangle_5.scaleX = 8.81018188515297;
+		rectangle_5.scaleY = 4.837317399287812;
+		rectangle_5.angle = -21;
+		rectangle_5.isFilled = true;
+		rectangle_5.fillColor = 15963663;
+
+		// rectangle_6
+		const rectangle_6 = this.add.rectangle(4803, 96, 128, 128);
+		rectangle_6.scaleX = 0.31730601127461844;
+		rectangle_6.scaleY = 1.761465080532969;
+		rectangle_6.isFilled = true;
+		rectangle_6.fillColor = 14277081;
+
+		// rectangle_14
+		const rectangle_14 = this.add.rectangle(5257, -74, 128, 128);
+		rectangle_14.scaleX = 0.21680488724984798;
+		rectangle_14.scaleY = 11.055574946764054;
+		rectangle_14.angle = 68;
+		rectangle_14.isFilled = true;
+		rectangle_14.fillColor = 14277081;
+
+		// rectangle_15
+		const rectangle_15 = this.add.rectangle(5851.801909499444, -282.8167968641214, 128, 128);
+		rectangle_15.scaleX = 0.1915405253398752;
+		rectangle_15.scaleY = 1.4672701101398202;
+		rectangle_15.isFilled = true;
+		rectangle_15.fillColor = 14277081;
+
 		this.rectangle_1 = rectangle_1;
 		this.rectangle = rectangle;
 		this.barre_vie = barre_vie;
@@ -1130,7 +1169,7 @@ class Jeu extends S {
 
 		this.createPlatformes()
 		for (var i = 0; i < 102; i++) {
-			const g = new Guepe(this, Phaser.Math.Between(64, 736), Phaser.Math.Between(100, 500));
+			const g = new Guepe(this, Phaser.Math.Between(2064, 2736), Phaser.Math.Between(100, 500));
 			this.groupeGuepe.add(g)
 		}
 		this.physics.world.setBoundsCollision(true, true, false, true)
