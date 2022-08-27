@@ -142,14 +142,14 @@ class S extends Phaser.Scene {
 
 	configEau() {
 		this.eau.setDepth(10)
-		this.rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
+		// this.rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
 
-    // this.input.on('pointermove', function (pointer) {
+		var graphics = this.add.graphics();
 
-    //     rect.x = pointer.x;
-    //     rect.y = pointer.y;
+		this.rect = new Phaser.Geom.Rectangle(this.eau.getLeftCenter().x, this.eau.getLeftCenter().y - 370, this.eau.displayWidth, this.eau.displayHeight);
 
-    // }, this);
+
+
 	}
 
 	update() {
@@ -159,17 +159,10 @@ class S extends Phaser.Scene {
 		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
 
-		var x = this.rect.x - (this.rect.width / 2);
-		var y = this.rect.y - (this.rect.height / 2);
-
-    var within = this.physics.overlapRect(x, y, this.rect.width, this.rect.height);
-
-    within.forEach((body) => {
-		this.spineBoy.body.setVelocity(this.spineBoy.body.velocity.x / 2, this.spineBoy.body.velocity.y / 2)
-    });
-
-
-
+        if(this.rect.contains(this.spineBoy.x, this.spineBoy.y)) {
+			this.spineBoy.body.velocity.x = this.spineBoy.body.velocity.x / 2
+			this.spineBoy.body.velocity.y -= 10
+		}
 
     // const size = this.animationNames.length
     const startAnim = this.spineBoy.getCurrentAnimation().name
@@ -344,7 +337,7 @@ class Jeu extends S {
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
-		const rectangle_9 = this.add.rectangle(9195, -585, 128, 128);
+		const rectangle_9 = this.add.rectangle(8561, -609, 128, 128);
 		rectangle_9.scaleX = 1.562311471077136;
 		rectangle_9.scaleY = 1.5150110407617778;
 		rectangle_9.isFilled = true;
@@ -986,14 +979,14 @@ class Jeu extends S {
 
 	configEau() {
 		this.eau.setDepth(10)
-		this.rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
+		// this.rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
 
-    // this.input.on('pointermove', function (pointer) {
+		var graphics = this.add.graphics();
 
-    //     rect.x = pointer.x;
-    //     rect.y = pointer.y;
+		this.rect = new Phaser.Geom.Rectangle(this.eau.getLeftCenter().x, this.eau.getLeftCenter().y - 370, this.eau.displayWidth, this.eau.displayHeight);
 
-    // }, this);
+
+
 	}
 
 	update() {
@@ -1003,17 +996,10 @@ class Jeu extends S {
 		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
 
-		var x = this.rect.x - (this.rect.width / 2);
-		var y = this.rect.y - (this.rect.height / 2);
-
-    var within = this.physics.overlapRect(x, y, this.rect.width, this.rect.height);
-
-    within.forEach((body) => {
-		this.spineBoy.body.setVelocity(this.spineBoy.body.velocity.x / 2, this.spineBoy.body.velocity.y / 2)
-    });
-
-
-
+        if(this.rect.contains(this.spineBoy.x, this.spineBoy.y)) {
+			this.spineBoy.body.velocity.x = this.spineBoy.body.velocity.x / 2
+			this.spineBoy.body.velocity.y -= 10
+		}
 
     // const size = this.animationNames.length
     const startAnim = this.spineBoy.getCurrentAnimation().name
