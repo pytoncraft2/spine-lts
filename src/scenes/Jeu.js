@@ -72,6 +72,7 @@ class S extends Phaser.Scene {
 		});
 
 		this.createPlatformes()
+		this.configEau()
 		for (var i = 0; i < 102; i++) {
 			const g = new Guepe(this, Phaser.Math.Between(2064, 2736), Phaser.Math.Between(100, 500));
 			this.groupeGuepe.add(g)
@@ -115,7 +116,8 @@ class S extends Phaser.Scene {
 	}
 
 	createSpineBoy(startAnim = 'idle') {
-		const spineBoy = this.add.spine(1000, 547, SPINEBOY_KEY, startAnim, true)
+		const spineBoy = this.add.spine(110, 547, SPINEBOY_KEY, startAnim, true)
+		spineBoy.setDepth(1)
 		// spineBoy.setSize(280, 680);
 		this.physics.add.existing(spineBoy);
 		// spineBoy.body.allowGravity = false
@@ -135,6 +137,10 @@ class S extends Phaser.Scene {
 		// spineBoy.scaleY = 0.5
 
 		return spineBoy
+	}
+
+	configEau() {
+		this.eau.setDepth(10)
 	}
 
 	update() {
@@ -257,6 +263,8 @@ class Jeu extends S {
 		this.rectangle_12;
 		/** @type {Phaser.GameObjects.Rectangle} */
 		this.rectangle_13;
+		/** @type {Phaser.GameObjects.Rectangle} */
+		this.eau;
 
 
 		/* START-USER-CTR-CODE */
@@ -277,7 +285,7 @@ class Jeu extends S {
 		rectangle_1.fillAlpha = 0.8;
 
 		// rectangle
-		const rectangle = this.add.rectangle(110, -482, 128, 128);
+		const rectangle = this.add.rectangle(102, -482, 128, 128);
 		rectangle.scaleX = 1.562311471077136;
 		rectangle.scaleY = 1.5150110407617778;
 		rectangle.isFilled = true;
@@ -310,7 +318,7 @@ class Jeu extends S {
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
-		const rectangle_9 = this.add.rectangle(9164, -500, 128, 128);
+		const rectangle_9 = this.add.rectangle(9164, -390, 128, 128);
 		rectangle_9.scaleX = 1.562311471077136;
 		rectangle_9.scaleY = 1.5150110407617778;
 		rectangle_9.isFilled = true;
@@ -799,6 +807,14 @@ class Jeu extends S {
 		ellipse_3.isFilled = true;
 		ellipse_3.fillColor = 3322133;
 
+		// eau
+		const eau = this.add.rectangle(8721, 1361, 128, 128);
+		eau.scaleX = 32.39042599028498;
+		eau.scaleY = 12.119335026899947;
+		eau.isFilled = true;
+		eau.fillColor = 2278121;
+		eau.fillAlpha = 0.3;
+
 		this.rectangle_1 = rectangle_1;
 		this.rectangle = rectangle;
 		this.barre_vie = barre_vie;
@@ -808,6 +824,7 @@ class Jeu extends S {
 		this.rectangle_11 = rectangle_11;
 		this.rectangle_12 = rectangle_12;
 		this.rectangle_13 = rectangle_13;
+		this.eau = eau;
 
 		this.events.emit("scene-awake");
 	}
@@ -831,6 +848,7 @@ class Jeu extends S {
 		});
 
 		this.createPlatformes()
+		this.configEau()
 		for (var i = 0; i < 102; i++) {
 			const g = new Guepe(this, Phaser.Math.Between(2064, 2736), Phaser.Math.Between(100, 500));
 			this.groupeGuepe.add(g)
@@ -874,7 +892,8 @@ class Jeu extends S {
 	}
 
 	createSpineBoy(startAnim = 'idle') {
-		const spineBoy = this.add.spine(1000, 547, SPINEBOY_KEY, startAnim, true)
+		const spineBoy = this.add.spine(110, 547, SPINEBOY_KEY, startAnim, true)
+		spineBoy.setDepth(1)
 		// spineBoy.setSize(280, 680);
 		this.physics.add.existing(spineBoy);
 		// spineBoy.body.allowGravity = false
@@ -894,6 +913,10 @@ class Jeu extends S {
 		// spineBoy.scaleY = 0.5
 
 		return spineBoy
+	}
+
+	configEau() {
+		this.eau.setDepth(10)
 	}
 
 	update() {
