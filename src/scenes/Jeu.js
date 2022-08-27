@@ -133,6 +133,12 @@ class S extends Phaser.Scene {
 		// camera.originY = 0.5;
 
 		this.cameras.main.originY = 0.8
+		spineBoy.setMix('walk', 'shoot', 0.3)
+		spineBoy.setMix('walk', 'idle', 0.3)
+		spineBoy.setMix('idle', 'walk', 0.3)
+		spineBoy.setMix('shoot', 'idle', 0.3)
+		spineBoy.setMix('idle', 'shoot', 0.3)
+
 
 		// spineBoy.scaleX = 0.5
 		// spineBoy.scaleY = 0.5
@@ -337,7 +343,7 @@ class Jeu extends S {
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
-		const rectangle_9 = this.add.rectangle(8561, -609, 128, 128);
+		const rectangle_9 = this.add.rectangle(7857, -354, 128, 128);
 		rectangle_9.scaleX = 1.562311471077136;
 		rectangle_9.scaleY = 1.5150110407617778;
 		rectangle_9.isFilled = true;
@@ -970,6 +976,12 @@ class Jeu extends S {
 		// camera.originY = 0.5;
 
 		this.cameras.main.originY = 0.8
+		spineBoy.setMix('walk', 'shoot', 0.3)
+		spineBoy.setMix('walk', 'idle', 0.3)
+		spineBoy.setMix('idle', 'walk', 0.3)
+		spineBoy.setMix('shoot', 'idle', 0.3)
+		spineBoy.setMix('idle', 'shoot', 0.3)
+
 
 		// spineBoy.scaleX = 0.5
 		// spineBoy.scaleY = 0.5
