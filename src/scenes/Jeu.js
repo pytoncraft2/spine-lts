@@ -1052,6 +1052,50 @@ class Jeu extends S {
 		const dark_grass_164 = this.add.image(3318.53426361084, 49.034088134765625, "dark_grass");
 		container_2.add(dark_grass_164);
 
+		// rectangle_2
+		const rectangle_2 = this.add.rectangle(2683, 289, 128, 128);
+		rectangle_2.scaleX = 0.735351842308086;
+		rectangle_2.scaleY = 3.9709443828112088;
+		rectangle_2.isFilled = true;
+		rectangle_2.fillColor = 6961924;
+
+		// ellipse_1
+		const ellipse_1 = this.add.ellipse(2683, -149, 128, 128);
+		ellipse_1.scaleX = 3.4999596101303423;
+		ellipse_1.scaleY = 3.4999596101303423;
+		ellipse_1.isFilled = true;
+		ellipse_1.fillColor = 3322133;
+		ellipse_1.isStroked = true;
+
+		// ellipse
+		const ellipse = this.add.ellipse(2799, -206, 128, 128);
+		ellipse.scaleX = 3.4999596101303423;
+		ellipse.scaleY = 3.4999596101303423;
+		ellipse.isFilled = true;
+		ellipse.fillColor = 3322133;
+		ellipse.isStroked = true;
+
+		// ellipse_2
+		const ellipse_2 = this.add.ellipse(2746, -103, 128, 128);
+		ellipse_2.scaleX = 3.4999596101303423;
+		ellipse_2.scaleY = 3.4999596101303423;
+		ellipse_2.isFilled = true;
+		ellipse_2.fillColor = 3322133;
+		ellipse_2.isStroked = true;
+
+		// rectangle_4
+		const rectangle_4 = this.add.rectangle(2593, 231, 128, 128);
+		rectangle_4.scaleX = 0.20686189443241787;
+		rectangle_4.scaleY = 2.027240392379049;
+		rectangle_4.angle = 129;
+		rectangle_4.isFilled = true;
+		rectangle_4.fillColor = 6961924;
+
+		// ellipse_3
+		const ellipse_3 = this.add.ellipse(2491, 133, 128, 128);
+		ellipse_3.isFilled = true;
+		ellipse_3.fillColor = 3322133;
+
 		this.rectangle_1 = rectangle_1;
 		this.rectangle = rectangle;
 		this.barre_vie = barre_vie;
