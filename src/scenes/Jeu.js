@@ -99,12 +99,13 @@ class S extends Phaser.Scene {
 	createPlatformes() {
 		const p1 = this.physics.add.existing(this.rectangle);
 		const p2 = this.physics.add.existing(this.rectangle_1);
-		// const p3 = this.physics.add.existing(this.rectangle_2);
-		// const p4 = this.physics.add.existing(this.rectangle_3);
-		this.platformes.addMultiple([p1, p2], true);   // array of game objects
+		const p3 = this.physics.add.existing(this.rectangle_7);
+		const p4 = this.physics.add.existing(this.rectangle_6);
+		const p5 = this.physics.add.existing(this.rectangle_5);
+		this.platformes.addMultiple([p1, p2, p4, p5, p3], true);
 
-		this.physics.add.collider([p1, p2], this.spineBoy);
-		this.physics.add.collider([p1, p2], this.groupeGuepe);
+		this.physics.add.collider([p1, p2, p4, p5, p3], this.spineBoy);
+		this.physics.add.collider([p1, p2, p4, p5, p3], this.groupeGuepe);
 
 	}
 
@@ -265,6 +266,14 @@ class Jeu extends S {
 		this.rectangle_13;
 		/** @type {Phaser.GameObjects.Rectangle} */
 		this.eau;
+		/** @type {Phaser.GameObjects.Rectangle} */
+		this.rectangle_3;
+		/** @type {Phaser.GameObjects.Rectangle} */
+		this.rectangle_5;
+		/** @type {Phaser.GameObjects.Rectangle} */
+		this.rectangle_6;
+		/** @type {Phaser.GameObjects.Rectangle} */
+		this.rectangle_7;
 
 
 		/* START-USER-CTR-CODE */
@@ -318,7 +327,7 @@ class Jeu extends S {
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
-		const rectangle_9 = this.add.rectangle(9164, -390, 128, 128);
+		const rectangle_9 = this.add.rectangle(9292, -610, 128, 128);
 		rectangle_9.scaleX = 1.562311471077136;
 		rectangle_9.scaleY = 1.5150110407617778;
 		rectangle_9.isFilled = true;
@@ -808,12 +817,50 @@ class Jeu extends S {
 		ellipse_3.fillColor = 3322133;
 
 		// eau
-		const eau = this.add.rectangle(8721, 1361, 128, 128);
-		eau.scaleX = 32.39042599028498;
-		eau.scaleY = 12.119335026899947;
+		const eau = this.add.rectangle(9940, 1097, 128, 128);
+		eau.scaleX = 48.58964385606921;
+		eau.scaleY = 6.3038784361710505;
 		eau.isFilled = true;
 		eau.fillColor = 2278121;
 		eau.fillAlpha = 0.3;
+
+		// rectangle_3
+		const rectangle_3 = this.add.rectangle(13076, 572, 128, 128);
+		rectangle_3.scaleX = 50.984369120904816;
+		rectangle_3.scaleY = 0.4705141956426765;
+		rectangle_3.setOrigin(0, 0.5);
+		rectangle_3.isFilled = true;
+		rectangle_3.fillColor = 2978887;
+		rectangle_3.fillAlpha = 0.8;
+
+		// rectangle_5
+		const rectangle_5 = this.add.rectangle(6826, 1531, 128, 128);
+		rectangle_5.scaleX = 48.685184752806194;
+		rectangle_5.scaleY = 0.36130642977123606;
+		rectangle_5.setOrigin(0, 0.5);
+		rectangle_5.isFilled = true;
+		rectangle_5.fillColor = 2978887;
+		rectangle_5.fillAlpha = 0.8;
+
+		// rectangle_6
+		const rectangle_6 = this.add.rectangle(6802, 649, 128, 128);
+		rectangle_6.scaleX = 6.998038697480819;
+		rectangle_6.scaleY = 0.34032481198905895;
+		rectangle_6.angle = 90;
+		rectangle_6.setOrigin(0, 0.5);
+		rectangle_6.isFilled = true;
+		rectangle_6.fillColor = 2978887;
+		rectangle_6.fillAlpha = 0.8;
+
+		// rectangle_7
+		const rectangle_7 = this.add.rectangle(13068, 585, 128, 128);
+		rectangle_7.scaleX = 7.324540763045077;
+		rectangle_7.scaleY = 0.40963352187253926;
+		rectangle_7.angle = 90;
+		rectangle_7.setOrigin(0, 0.5);
+		rectangle_7.isFilled = true;
+		rectangle_7.fillColor = 2978887;
+		rectangle_7.fillAlpha = 0.8;
 
 		this.rectangle_1 = rectangle_1;
 		this.rectangle = rectangle;
@@ -825,6 +872,10 @@ class Jeu extends S {
 		this.rectangle_12 = rectangle_12;
 		this.rectangle_13 = rectangle_13;
 		this.eau = eau;
+		this.rectangle_3 = rectangle_3;
+		this.rectangle_5 = rectangle_5;
+		this.rectangle_6 = rectangle_6;
+		this.rectangle_7 = rectangle_7;
 
 		this.events.emit("scene-awake");
 	}
@@ -875,12 +926,13 @@ class Jeu extends S {
 	createPlatformes() {
 		const p1 = this.physics.add.existing(this.rectangle);
 		const p2 = this.physics.add.existing(this.rectangle_1);
-		// const p3 = this.physics.add.existing(this.rectangle_2);
-		// const p4 = this.physics.add.existing(this.rectangle_3);
-		this.platformes.addMultiple([p1, p2], true);   // array of game objects
+		const p3 = this.physics.add.existing(this.rectangle_7);
+		const p4 = this.physics.add.existing(this.rectangle_6);
+		const p5 = this.physics.add.existing(this.rectangle_5);
+		this.platformes.addMultiple([p1, p2, p4, p5, p3], true);
 
-		this.physics.add.collider([p1, p2], this.spineBoy);
-		this.physics.add.collider([p1, p2], this.groupeGuepe);
+		this.physics.add.collider([p1, p2, p4, p5, p3], this.spineBoy);
+		this.physics.add.collider([p1, p2, p4, p5, p3], this.groupeGuepe);
 
 	}
 
