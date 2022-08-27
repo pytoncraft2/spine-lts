@@ -142,7 +142,7 @@ class S extends Phaser.Scene {
 
 	configEau() {
 		this.eau.setDepth(10)
-		var rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
+		this.rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
 
     // this.input.on('pointermove', function (pointer) {
 
@@ -158,6 +158,15 @@ class S extends Phaser.Scene {
 				if (right.isDown) this.spineBoy.body.setVelocityX(500)
 		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
+
+		var x = this.rect.x - (this.rect.width / 2);
+		var y = this.rect.y - (this.rect.height / 2);
+
+    var within = this.physics.overlapRect(x, y, this.rect.width, this.rect.height);
+
+    within.forEach((body) => {
+		this.spineBoy.body.setVelocity(this.spineBoy.body.velocity.x / 2, this.spineBoy.body.velocity.y / 2)
+    });
 
 
 
@@ -335,7 +344,7 @@ class Jeu extends S {
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
-		const rectangle_9 = this.add.rectangle(9316, -659, 128, 128);
+		const rectangle_9 = this.add.rectangle(9195, -585, 128, 128);
 		rectangle_9.scaleX = 1.562311471077136;
 		rectangle_9.scaleY = 1.5150110407617778;
 		rectangle_9.isFilled = true;
@@ -977,7 +986,7 @@ class Jeu extends S {
 
 	configEau() {
 		this.eau.setDepth(10)
-		var rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
+		this.rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
 
     // this.input.on('pointermove', function (pointer) {
 
@@ -993,6 +1002,15 @@ class Jeu extends S {
 				if (right.isDown) this.spineBoy.body.setVelocityX(500)
 		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
+
+		var x = this.rect.x - (this.rect.width / 2);
+		var y = this.rect.y - (this.rect.height / 2);
+
+    var within = this.physics.overlapRect(x, y, this.rect.width, this.rect.height);
+
+    within.forEach((body) => {
+		this.spineBoy.body.setVelocity(this.spineBoy.body.velocity.x / 2, this.spineBoy.body.velocity.y / 2)
+    });
 
 
 
