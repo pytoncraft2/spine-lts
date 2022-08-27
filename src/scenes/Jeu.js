@@ -142,6 +142,14 @@ class S extends Phaser.Scene {
 
 	configEau() {
 		this.eau.setDepth(10)
+		var rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
+
+    // this.input.on('pointermove', function (pointer) {
+
+    //     rect.x = pointer.x;
+    //     rect.y = pointer.y;
+
+    // }, this);
 	}
 
 	update() {
@@ -327,7 +335,7 @@ class Jeu extends S {
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
-		const rectangle_9 = this.add.rectangle(9292, -610, 128, 128);
+		const rectangle_9 = this.add.rectangle(9316, -659, 128, 128);
 		rectangle_9.scaleX = 1.562311471077136;
 		rectangle_9.scaleY = 1.5150110407617778;
 		rectangle_9.isFilled = true;
@@ -969,6 +977,14 @@ class Jeu extends S {
 
 	configEau() {
 		this.eau.setDepth(10)
+		var rect = this.add.rectangle(this.eau.x, this.eau.y, this.eau.width, this.eau.height).setStrokeStyle(2, 0xffff00).setScale(this.eau.scaleX, this.eau.scaleY);
+
+    // this.input.on('pointermove', function (pointer) {
+
+    //     rect.x = pointer.x;
+    //     rect.y = pointer.y;
+
+    // }, this);
 	}
 
 	update() {
