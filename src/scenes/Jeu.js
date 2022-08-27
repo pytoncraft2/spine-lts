@@ -248,8 +248,6 @@ class Jeu extends S {
 		/** @type {Phaser.GameObjects.Rectangle} */
 		this.vie;
 		/** @type {Phaser.GameObjects.Rectangle} */
-		this.rectangle_3;
-		/** @type {Phaser.GameObjects.Rectangle} */
 		this.rectangle_9;
 		/** @type {Phaser.GameObjects.Rectangle} */
 		this.rectangle_10;
@@ -271,8 +269,8 @@ class Jeu extends S {
 
 		// rectangle_1
 		const rectangle_1 = this.add.rectangle(0, 642, 128, 128);
-		rectangle_1.scaleX = 252.16997826032386;
-		rectangle_1.scaleY = 0.4428600869505224;
+		rectangle_1.scaleX = 50.984369120904816;
+		rectangle_1.scaleY = 0.4705141956426765;
 		rectangle_1.setOrigin(0, 0.5);
 		rectangle_1.isFilled = true;
 		rectangle_1.fillColor = 2978887;
@@ -310,18 +308,6 @@ class Jeu extends S {
 		text_2.setOrigin(0.5, 0.5);
 		text_2.text = "?";
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
-
-		// rectangle_3
-		const rectangle_3 = this.add.rectangle(5744, -500, 128, 128);
-		rectangle_3.scaleX = 1.562311471077136;
-		rectangle_3.scaleY = 1.5150110407617778;
-		rectangle_3.isFilled = true;
-
-		// text_3
-		const text_3 = this.add.text(5743, -495, "", {});
-		text_3.setOrigin(0.5, 0.5);
-		text_3.text = "?";
-		text_3.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
 		const rectangle_9 = this.add.rectangle(9164, -500, 128, 128);
@@ -758,300 +744,16 @@ class Jeu extends S {
 		const dark_grass_91 = this.add.image(2534.543296813965, 47.359100341796875, "dark_grass");
 		container.add(dark_grass_91);
 
-		// dark_grass_92
-		const dark_grass_92 = this.add.image(2705.83406829834, 24.324981689453125, "dark_grass");
-		container.add(dark_grass_92);
-
 		// dark_grass_93
 		const dark_grass_93 = this.add.image(2562.727378845215, 67.56588745117188, "dark_grass");
 		container.add(dark_grass_93);
-
-		// dark_grass_94
-		const dark_grass_94 = this.add.image(2749.075035095215, 59.329559326171875, "dark_grass");
-		container.add(dark_grass_94);
-
-		// dark_grass_95
-		const dark_grass_95 = this.add.image(2895.27059173584, 58.299957275390625, "dark_grass");
-		container.add(dark_grass_95);
-
-		// dark_grass_96
-		const dark_grass_96 = this.add.image(3016.75691986084, 44.915924072265625, "dark_grass");
-		container.add(dark_grass_96);
-
-		// dark_grass_97
-		const dark_grass_97 = this.add.image(3145.450035095215, 43.886322021484375, "dark_grass");
-		container.add(dark_grass_97);
-
-		// dark_grass_98
-		const dark_grass_98 = this.add.image(2981.752281188965, 49.034088134765625, "dark_grass");
-		container.add(dark_grass_98);
-
-		// dark_grass_99
-		const dark_grass_99 = this.add.image(2840.70467376709, 42.856781005859375, "dark_grass");
-		container.add(dark_grass_99);
 
 		// dark_grass_100
 		const dark_grass_100 = this.add.image(2581.259117126465, 53.152252197265625, "dark_grass");
 		container.add(dark_grass_100);
 
-		// dark_grass_101
-		const dark_grass_101 = this.add.image(3260.759117126465, 43.886322021484375, "dark_grass");
-		container.add(dark_grass_101);
-
-		// dark_grass_102
-		const dark_grass_102 = this.add.image(3073.38191986084, 56.240875244140625, "dark_grass");
-		container.add(dark_grass_102);
-
-		// dark_grass_103
-		const dark_grass_103 = this.add.image(3405.015953063965, 29.472686767578125, "dark_grass");
-		container.add(dark_grass_103);
-
-		// dark_grass_104
-		const dark_grass_104 = this.add.image(3622.25008392334, 48.004547119140625, "dark_grass");
-		container.add(dark_grass_104);
-
-		// dark_grass_105
-		const dark_grass_105 = this.add.image(3823.01131439209, 34.620452880859375, "dark_grass");
-		container.add(dark_grass_105);
-
-		// dark_grass_106
-		const dark_grass_106 = this.add.image(3450.31600189209, 42.856781005859375, "dark_grass");
-		container.add(dark_grass_106);
-
-		// dark_grass_107
-		const dark_grass_107 = this.add.image(3515.17733001709, 58.299957275390625, "dark_grass");
-		container.add(dark_grass_107);
-
-		// dark_grass_108
-		const dark_grass_108 = this.add.image(3717.997886657715, 58.299957275390625, "dark_grass");
-		container.add(dark_grass_108);
-
-		// dark_grass_109
-		const dark_grass_109 = this.add.image(3318.53426361084, 49.034088134765625, "dark_grass");
-		container.add(dark_grass_109);
-
 		// container_2
 		const container_2 = this.add.container(7866, 485);
-
-		// dark_grass_110
-		const dark_grass_110 = this.add.image(511.06819915771484, 20.554534912109375, "dark_grass");
-		container_2.add(dark_grass_110);
-
-		// dark_grass_111
-		const dark_grass_111 = this.add.image(594.0681991577148, 23.554534912109375, "dark_grass");
-		container_2.add(dark_grass_111);
-
-		// dark_grass_112
-		const dark_grass_112 = this.add.image(676.7113876342773, 23.556793212890625, "dark_grass");
-		container_2.add(dark_grass_112);
-
-		// dark_grass_113
-		const dark_grass_113 = this.add.image(748.7795639038086, 23.556793212890625, "dark_grass");
-		container_2.add(dark_grass_113);
-
-		// dark_grass_114
-		const dark_grass_114 = this.add.image(878.5022811889648, 19.438629150390625, "dark_grass");
-		container_2.add(dark_grass_114);
-
-		// dark_grass_115
-		const dark_grass_115 = this.add.image(1009.2546005249023, 19.438629150390625, "dark_grass");
-		container_2.add(dark_grass_115);
-
-		// dark_grass_116
-		const dark_grass_116 = this.add.image(1141.0363388061523, 16.350006103515625, "dark_grass");
-		container_2.add(dark_grass_116);
-
-		// dark_grass_117
-		const dark_grass_117 = this.add.image(1270.7591171264648, 30.763641357421875, "dark_grass");
-		container_2.add(dark_grass_117);
-
-		// dark_grass_118
-		const dark_grass_118 = this.add.image(1050.4363632202148, 48.265899658203125, "dark_grass");
-		container_2.add(dark_grass_118);
-
-		// dark_grass_119
-		const dark_grass_119 = this.add.image(820.8477401733398, 41.059051513671875, "dark_grass");
-		container_2.add(dark_grass_119);
-
-		// dark_grass_120
-		const dark_grass_120 = this.add.image(350.34545135498047, 61.649993896484375, "dark_grass");
-		container_2.add(dark_grass_120);
-
-		// dark_grass_121
-		const dark_grass_121 = this.add.image(246.36138153076172, 34.881805419921875, "dark_grass");
-		container_2.add(dark_grass_121);
-
-		// dark_grass_122
-		const dark_grass_122 = this.add.image(139.28865814208984, 44.147735595703125, "dark_grass");
-		container_2.add(dark_grass_122);
-
-		// dark_grass_123
-		const dark_grass_123 = this.add.image(395.64546966552734, 30.763641357421875, "dark_grass");
-		container_2.add(dark_grass_123);
-
-		// dark_grass_124
-		const dark_grass_124 = this.add.image(0, 37.497711181640625, "dark_grass");
-		container_2.add(dark_grass_124);
-
-		// dark_grass_125
-		const dark_grass_125 = this.add.image(80.3045425415039, 16.906829833984375, "dark_grass");
-		container_2.add(dark_grass_125);
-
-		// dark_grass_126
-		const dark_grass_126 = this.add.image(930.0681991577148, 42.554534912109375, "dark_grass");
-		container_2.add(dark_grass_126);
-
-		// dark_grass_127
-		const dark_grass_127 = this.add.image(1150.8796005249023, 28.936370849609375, "dark_grass");
-		container_2.add(dark_grass_127);
-
-		// dark_grass_128
-		const dark_grass_128 = this.add.image(1364.3227157592773, 39.556793212890625, "dark_grass");
-		container_2.add(dark_grass_128);
-
-		// dark_grass_129
-		const dark_grass_129 = this.add.image(1204.7432479858398, 43.675018310546875, "dark_grass");
-		container_2.add(dark_grass_129);
-
-		// dark_grass_130
-		const dark_grass_130 = this.add.image(1461.1000595092773, 10.729522705078125, "dark_grass");
-		container_2.add(dark_grass_130);
-
-		// dark_grass_131
-		const dark_grass_131 = this.add.image(1486.8387069702148, 56.029510498046875, "dark_grass");
-		container_2.add(dark_grass_131);
-
-		// dark_grass_132
-		const dark_grass_132 = this.add.image(1596.9999618530273, 23.084075927734375, "dark_grass");
-		container_2.add(dark_grass_132);
-
-		// dark_grass_133
-		const dark_grass_133 = this.add.image(1710.2499618530273, 39.556793212890625, "dark_grass");
-		container_2.add(dark_grass_133);
-
-		// dark_grass_134
-		const dark_grass_134 = this.add.image(1826.5885848999023, 33.379547119140625, "dark_grass");
-		container_2.add(dark_grass_134);
-
-		// dark_grass_135
-		const dark_grass_135 = this.add.image(1976.9021835327148, 27.202239990234375, "dark_grass");
-		container_2.add(dark_grass_135);
-
-		// dark_grass_136
-		const dark_grass_136 = this.add.image(1733.9295272827148, 21.024993896484375, "dark_grass");
-		container_2.add(dark_grass_136);
-
-		// dark_grass_137
-		const dark_grass_137 = this.add.image(1559.9363632202148, 66.32498168945312, "dark_grass");
-		container_2.add(dark_grass_137);
-
-		// dark_grass_138
-		const dark_grass_138 = this.add.image(2043.4500350952148, 19.561370849609375, "dark_grass");
-		container_2.add(dark_grass_138);
-
-		// dark_grass_139
-		const dark_grass_139 = this.add.image(1932.2591171264648, 18.531829833984375, "dark_grass");
-		container_2.add(dark_grass_139);
-
-		// dark_grass_140
-		const dark_grass_140 = this.add.image(2217.443199157715, 46.329559326171875, "dark_grass");
-		container_2.add(dark_grass_140);
-
-		// dark_grass_141
-		const dark_grass_141 = this.add.image(2076.39559173584, 44.270416259765625, "dark_grass");
-		container_2.add(dark_grass_141);
-
-		// dark_grass_142
-		const dark_grass_142 = this.add.image(2286.422691345215, 0, "dark_grass");
-		container_2.add(dark_grass_142);
-
-		// dark_grass_143
-		const dark_grass_143 = this.add.image(2393.495445251465, 71.03860473632812, "dark_grass");
-		container_2.add(dark_grass_143);
-
-		// dark_grass_144
-		const dark_grass_144 = this.add.image(2563.370445251465, 29.856781005859375, "dark_grass");
-		container_2.add(dark_grass_144);
-
-		// dark_grass_145
-		const dark_grass_145 = this.add.image(2337.89998626709, 57.654510498046875, "dark_grass");
-		container_2.add(dark_grass_145);
-
-		// dark_grass_146
-		const dark_grass_146 = this.add.image(2534.543296813965, 47.359100341796875, "dark_grass");
-		container_2.add(dark_grass_146);
-
-		// dark_grass_147
-		const dark_grass_147 = this.add.image(2705.83406829834, 24.324981689453125, "dark_grass");
-		container_2.add(dark_grass_147);
-
-		// dark_grass_148
-		const dark_grass_148 = this.add.image(2562.727378845215, 67.56588745117188, "dark_grass");
-		container_2.add(dark_grass_148);
-
-		// dark_grass_149
-		const dark_grass_149 = this.add.image(2749.075035095215, 59.329559326171875, "dark_grass");
-		container_2.add(dark_grass_149);
-
-		// dark_grass_150
-		const dark_grass_150 = this.add.image(2895.27059173584, 58.299957275390625, "dark_grass");
-		container_2.add(dark_grass_150);
-
-		// dark_grass_151
-		const dark_grass_151 = this.add.image(3016.75691986084, 44.915924072265625, "dark_grass");
-		container_2.add(dark_grass_151);
-
-		// dark_grass_152
-		const dark_grass_152 = this.add.image(3145.450035095215, 43.886322021484375, "dark_grass");
-		container_2.add(dark_grass_152);
-
-		// dark_grass_153
-		const dark_grass_153 = this.add.image(2981.752281188965, 49.034088134765625, "dark_grass");
-		container_2.add(dark_grass_153);
-
-		// dark_grass_154
-		const dark_grass_154 = this.add.image(2840.70467376709, 42.856781005859375, "dark_grass");
-		container_2.add(dark_grass_154);
-
-		// dark_grass_155
-		const dark_grass_155 = this.add.image(2581.259117126465, 53.152252197265625, "dark_grass");
-		container_2.add(dark_grass_155);
-
-		// dark_grass_156
-		const dark_grass_156 = this.add.image(3260.759117126465, 43.886322021484375, "dark_grass");
-		container_2.add(dark_grass_156);
-
-		// dark_grass_157
-		const dark_grass_157 = this.add.image(3073.38191986084, 56.240875244140625, "dark_grass");
-		container_2.add(dark_grass_157);
-
-		// dark_grass_158
-		const dark_grass_158 = this.add.image(3405.015953063965, 29.472686767578125, "dark_grass");
-		container_2.add(dark_grass_158);
-
-		// dark_grass_159
-		const dark_grass_159 = this.add.image(3622.25008392334, 48.004547119140625, "dark_grass");
-		container_2.add(dark_grass_159);
-
-		// dark_grass_160
-		const dark_grass_160 = this.add.image(3823.01131439209, 34.620452880859375, "dark_grass");
-		container_2.add(dark_grass_160);
-
-		// dark_grass_161
-		const dark_grass_161 = this.add.image(3450.31600189209, 42.856781005859375, "dark_grass");
-		container_2.add(dark_grass_161);
-
-		// dark_grass_162
-		const dark_grass_162 = this.add.image(3515.17733001709, 58.299957275390625, "dark_grass");
-		container_2.add(dark_grass_162);
-
-		// dark_grass_163
-		const dark_grass_163 = this.add.image(3717.997886657715, 58.299957275390625, "dark_grass");
-		container_2.add(dark_grass_163);
-
-		// dark_grass_164
-		const dark_grass_164 = this.add.image(3318.53426361084, 49.034088134765625, "dark_grass");
-		container_2.add(dark_grass_164);
 
 		// rectangle_2
 		const rectangle_2 = this.add.rectangle(2683, 289, 128, 128);
@@ -1097,49 +799,10 @@ class Jeu extends S {
 		ellipse_3.isFilled = true;
 		ellipse_3.fillColor = 3322133;
 
-		// triangle_1
-		const triangle_1 = this.add.triangle(4779, 451, 0, 128, 64, 0, 128, 128);
-		triangle_1.scaleX = 4.6747598735280205;
-		triangle_1.scaleY = 4.6747598735280205;
-		triangle_1.angle = 5;
-		triangle_1.isFilled = true;
-		triangle_1.fillColor = 3644915;
-
-		// rectangle_5
-		const rectangle_5 = this.add.rectangle(5450, 270, 128, 128);
-		rectangle_5.scaleX = 8.81018188515297;
-		rectangle_5.scaleY = 4.837317399287812;
-		rectangle_5.angle = -21;
-		rectangle_5.isFilled = true;
-		rectangle_5.fillColor = 15963663;
-
-		// rectangle_6
-		const rectangle_6 = this.add.rectangle(4803, 96, 128, 128);
-		rectangle_6.scaleX = 0.31730601127461844;
-		rectangle_6.scaleY = 1.761465080532969;
-		rectangle_6.isFilled = true;
-		rectangle_6.fillColor = 14277081;
-
-		// rectangle_14
-		const rectangle_14 = this.add.rectangle(5257, -74, 128, 128);
-		rectangle_14.scaleX = 0.21680488724984798;
-		rectangle_14.scaleY = 11.055574946764054;
-		rectangle_14.angle = 68;
-		rectangle_14.isFilled = true;
-		rectangle_14.fillColor = 14277081;
-
-		// rectangle_15
-		const rectangle_15 = this.add.rectangle(5851.801909499444, -282.8167968641214, 128, 128);
-		rectangle_15.scaleX = 0.1915405253398752;
-		rectangle_15.scaleY = 1.4672701101398202;
-		rectangle_15.isFilled = true;
-		rectangle_15.fillColor = 14277081;
-
 		this.rectangle_1 = rectangle_1;
 		this.rectangle = rectangle;
 		this.barre_vie = barre_vie;
 		this.vie = vie;
-		this.rectangle_3 = rectangle_3;
 		this.rectangle_9 = rectangle_9;
 		this.rectangle_10 = rectangle_10;
 		this.rectangle_11 = rectangle_11;
