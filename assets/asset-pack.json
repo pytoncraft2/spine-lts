@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/bubble.png",
+                "type": "image",
+                "key": "bubble"
+            },
+            {
                 "url": "assets/dark_grass.svg",
                 "type": "image",
                 "key": "dark_grass"
@@ -10,6 +15,21 @@
                 "url": "assets/dino.png",
                 "key": "dino",
                 "type": "image"
+            },
+            {
+                "url": "assets/farground.png",
+                "type": "image",
+                "key": "farground"
+            },
+            {
+                "url": "assets/mid_background.png",
+                "type": "image",
+                "key": "mid_background"
+            },
+            {
+                "url": "assets/sea_background.png",
+                "type": "image",
+                "key": "sea_background"
             }
         ]
     },

@@ -1,0 +1,52 @@
+{
+    "id": "ebc92719-30b4-4598-abe1-dc2a1e8f354c",
+    "sceneType": "SCENE",
+    "settings": {
+        "javaScriptInitFieldsInConstructor": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Eau"
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "f2c81c1a-e9dc-4a74-9030-20f4a9035751",
+            "label": "sea_background",
+            "components": [],
+            "texture": {
+                "key": "sea_background"
+            },
+            "x": 903,
+            "y": 193
+        },
+        {
+            "type": "Image",
+            "id": "99878a98-b63d-4983-8aed-f49ced18d3ae",
+            "label": "farground",
+            "components": [],
+            "texture": {
+                "key": "farground"
+            },
+            "x": 915,
+            "y": 188
+        },
+        {
+            "type": "Image",
+            "id": "b12561c4-e80e-41af-a115-8f69ebab35e1",
+            "label": "mid_background",
+            "components": [],
+            "texture": {
+                "key": "mid_background"
+            },
+            "x": 907,
+            "y": 287
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}
