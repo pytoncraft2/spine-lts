@@ -25,16 +25,25 @@ class Level extends Phaser.Scene {
 		jouer.text = "JOUER";
 		jouer.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
 
+		// Eau
+		const eau = this.add.text(401.36339477651865, 470.62087213995585, "", {});
+		eau.setOrigin(0.5, 0.5);
+		eau.text = "Eau";
+		eau.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
+
 		// dino (components)
 		new PushOnClick(dino);
 
 		this.jouer = jouer;
+		this.eau = eau;
 
 		this.events.emit("scene-awake");
 	}
 
 	/** @type {Phaser.GameObjects.Text} */
 	jouer;
+	/** @type {Phaser.GameObjects.Text} */
+	eau;
 
 	/* START-USER-CODE */
 
@@ -49,6 +58,11 @@ class Level extends Phaser.Scene {
 			.setInteractive()
 			.on('pointerdown', function () {
 				self.scene.start('Jeu');
+			});
+		this.eau
+			.setInteractive()
+			.on('pointerdown', function () {
+				self.scene.start('Eau');
 			});
 	}
 

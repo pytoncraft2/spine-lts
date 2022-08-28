@@ -33,6 +33,20 @@
             "text": "JOUER",
             "fontFamily": "Arial",
             "fontSize": "30px"
+        },
+        {
+            "type": "Text",
+            "id": "ab14e9ae-d4f1-4338-aa6d-8ee4633783dd",
+            "label": "Eau",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 401.36339477651865,
+            "y": 470.62087213995585,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Eau",
+            "fontFamily": "Arial",
+            "fontSize": "30px"
         }
     ],
     "plainObjects": [],

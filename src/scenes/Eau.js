@@ -35,6 +35,26 @@ class Eau extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		const width = this.scale.width
+		const height = this.scale.height
+		this.cursors = this.input.keyboard.createCursorKeys();
+
+	}
+
+	update() {
+		const cam = this.cameras.main
+		const speed = 3;
+
+		if (this.cursors.left.isDown) {
+			cam.scrollX -= speed
+		}
+
+		if (this.cursors.right.isDown) {
+			cam.scrollX += speed
+		}
+
+
 	}
 
 	/* END-USER-CODE */
