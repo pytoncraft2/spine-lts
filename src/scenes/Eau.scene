@@ -9,48 +9,12 @@
     },
     "displayList": [
         {
-            "type": "Image",
-            "id": "f2c81c1a-e9dc-4a74-9030-20f4a9035751",
-            "label": "mer_loin",
-            "scope": "PUBLIC",
-            "components": [],
-            "texture": {
-                "key": "sea_background"
-            },
-            "x": 903,
-            "y": 193
-        },
-        {
-            "type": "Image",
-            "id": "99878a98-b63d-4983-8aed-f49ced18d3ae",
-            "label": "algue_milieu",
-            "scope": "PUBLIC",
-            "components": [],
-            "texture": {
-                "key": "farground"
-            },
-            "x": 915,
-            "y": 188
-        },
-        {
-            "type": "Image",
-            "id": "b12561c4-e80e-41af-a115-8f69ebab35e1",
-            "label": "algue_proche",
-            "scope": "PUBLIC",
-            "components": [],
-            "texture": {
-                "key": "mid_background"
-            },
-            "x": 907,
-            "y": 287
-        },
-        {
             "type": "Rectangle",
             "id": "2c62bbc3-e50a-49e0-9a1d-6f03d5b365f6",
             "label": "rectangle_1",
             "components": [],
-            "x": -353,
-            "y": -13,
+            "x": -295,
+            "y": 118,
             "isFilled": true,
             "width": 128,
             "height": 128
