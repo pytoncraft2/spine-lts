@@ -1,6 +1,21 @@
 
 // You can write more code here
 
+const createAligned = (scene, totalWidth, texture, scrollFactor) => {
+	const w = scene.textures.get(texture).getSourceImage().width
+	const count = Math.ceil(totalWidth / w) * scrollFactor
+
+	let x = 0;
+	for (let i = 0; i < count; i++) {
+		// const element = array[i];
+
+		const m = scene.add.image(x, scene.scale.height, texture)
+			.setScrollFactor(scrollFactor)
+			// .setOrigin(0, 1)
+		x += m.width
+	}
+}
+
 /* START OF COMPILED CODE */
 
 class Eau extends Phaser.Scene {
@@ -34,7 +49,7 @@ class Eau extends Phaser.Scene {
 		const algue_proche = this.add.image(907, 287, "mid_background");
 
 		// rectangle_1
-		const rectangle_1 = this.add.rectangle(-528, 155, 128, 128);
+		const rectangle_1 = this.add.rectangle(-353, -13, 128, 128);
 		rectangle_1.isFilled = true;
 
 		this.mer_loin = mer_loin;
@@ -56,24 +71,31 @@ class Eau extends Phaser.Scene {
 		const width = this.scale.width
 		const height = this.scale.height
 
+		const totalWidth = width * 10
+
 
 		this.cameras.main.setBounds(0, 0, width * 3, height)
 		this.cursors = this.input.keyboard.createCursorKeys();
 
-		this.mer_loin
-			.setScrollFactor(0)
-		
-		this.algue_milieu
-			.setScrollFactor(0.25)
-		
-		this.algue_milieu
-			.setScrollFactor(0.5)
+		// this.mer_loin
+		// 	.setScrollFactor(0)
+
+		// this.algue_milieu
+		// 	.setScrollFactor(0.25)
+
+		// this.algue_milieu
+		// 	.setScrollFactor(0.5)
+
+
+		createAligned(this, totalWidth, "sea_background", 0)
+		createAligned(this, totalWidth, "farground", 0.25)
+		createAligned(this, totalWidth, "mid_background", 0.5)
 
 	}
 
 	update() {
 		const cam = this.cameras.main
-		const speed = 3;
+		const speed = 9;
 
 		if (this.cursors.left.isDown) {
 			cam.scrollX -= speed
