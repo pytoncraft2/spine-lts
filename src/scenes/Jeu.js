@@ -1,6 +1,25 @@
 
 // You can write more code here
 
+var boy
+// let skins = ['spineboy']
+// let attachments = ['spear', 'dagger', null]
+// let animations = ['idle', 'walk', 'run', 'shoot']
+let animations = [
+    "aim",
+    "death",
+    "hoverboard",
+    "idle",
+    "idle-turn",
+    "jump",
+    "portal",
+    "run",
+    "run-to-idle",
+    "shoot",
+    "walk"
+]
+
+
 class Guepe extends Phaser.Physics.Arcade.Sprite {
 
     constructor (scene, x, y)
@@ -96,6 +115,11 @@ class S extends Phaser.Scene {
 
 	}
 
+
+	setAnimation(animation, loop = false) {
+		this.spineBoy.play(animation, loop)
+	}
+
 	createPlatformes() {
 		const p1 = this.physics.add.existing(this.rectangle);
 		const p2 = this.physics.add.existing(this.rectangle_1);
@@ -117,8 +141,15 @@ class S extends Phaser.Scene {
 	}
 
 	createSpineBoy(startAnim = 'idle') {
+
+
 		const spineBoy = this.add.spine(110, 547, SPINEBOY_KEY, startAnim, true)
+		spineBoy.customParams = {
+			animation: 0,
+		}
+
 		spineBoy.setDepth(1)
+		spineBoy.velocityBonus = 0;
 		// spineBoy.setSize(280, 680);
 		this.physics.add.existing(spineBoy);
 		// spineBoy.body.allowGravity = false
@@ -161,94 +192,48 @@ class S extends Phaser.Scene {
 	update() {
 		const { right, left, up, down, space, A, Z, E, R, TAB } = this.keyboard
 
-				if (right.isDown) this.spineBoy.body.setVelocityX(500)
-		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
-		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
+		// if (left.isDown) {
+		// 	this.spineBoy.body.setVelocityX(-800);
+		// 	this.spineBoy.play('walk', true);
+		// } else if (right.isDown, true) {
+		// 	this.spineBoy.body.setVelocityX(800);
+		// 	this.spineBoy.play('walk', true);
+		// }
+		// else {
+		// 	this.spineBoy.body.setVelocityX(0);
+		// 	this.spineBoy.play('idle');
+		// }
 
-        if(this.rect.contains(this.spineBoy.x, this.spineBoy.y)) {
-			this.spineBoy.body.velocity.x = this.spineBoy.body.velocity.x / 2
-			this.spineBoy.body.velocity.y -= 10
+		if (Phaser.Input.Keyboard.JustDown(right)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 10
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+			this.spineBoy.body.velocity.x = 500
+		} else if (Phaser.Input.Keyboard.JustUp(right)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 3
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+			this.spineBoy.body.velocity.x = 0
 		}
 
-    // const size = this.animationNames.length
-    const startAnim = this.spineBoy.getCurrentAnimation().name
-    const bounds = this.spineBoy.getBounds()
-    const width = bounds.size.x
-    const height = bounds.size.y
-    let velocityR;
-    let walk2 = false;
 
-    if (A.isDown && startAnim !== 'shoot') {
-      this.spineBoy.play('shoot')
-    }
+		if (Phaser.Input.Keyboard.JustDown(space)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 2
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+		}
 
-    // if (TAB.isDown && startAnim !== 'run') {
-      // this.spineBoy.play('run')
-    // }
+		if (Phaser.Input.Keyboard.JustDown(A)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 9
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+		}
 
-    if (right.isDown) {
 
-      if (startAnim === 'jump') return;
-
-      if (startAnim !== 'walk' && walk2 === false) {
-        //   this.spineBoy.body.setSize(280, 680)
-      if (TAB.isDown) {
-          this.spineBoy.body.setVelocityX(1000)
-          if (startAnim !== 'run') {
-          this.spineBoy.play('run')
-          }
-        } else {
-          this.spineBoy.body.setVelocityX(500)
-          if (startAnim !== 'walk') {
-          this.spineBoy.play('walk')
-          }
-        }
-        //   this.spineBoy.scaleX = 0.5;
-        //   this.spineBoy.body.setOffset(0 , 0)
-          this.spineBoy.on('complete', (spine) => {
-          this.spineBoy.play('idle');
-          this.spineBoy.body.setVelocityX(0)
-        })
-      }
-    }
-
-    if (left.isDown) {
-
-      if (startAnim === 'jump') return;
-      walk2 = true;
-      if (startAnim !== 'walk' && walk2 === true) {
-      if (TAB.isDown) {
-          this.spineBoy.body.setVelocityX(-800)
-          if (startAnim !== 'run') {
-          this.spineBoy.play('run')
-          }
-        } else {
-          this.spineBoy.body.setVelocityX(-500)
-          if (startAnim !== 'walk') {
-          this.spineBoy.play('walk')
-          }
-        }
-        //   this.spineBoy.scaleX = -0.5;
-        //   this.spineBoy.body.setOffset(280 , 0)
-          this.spineBoy.on('complete', (spine) => {
-          this.spineBoy.play('idle');
-          this.spineBoy.body.setVelocityX(0)
-          walk2 = false;
-        })
-      }
-    }
-
-    if (space.isDown) {
-      if (startAnim !== 'jump') {
-        this.spineBoy.play('jump');
-        this.spineBoy.on('complete', (spine) => {
-          this.spineBoy.play('idle');
-        })
-      }
-    }
-		// if (right.isDown) this.spineBoy.body.setVelocityX(300)
-		// if (left.isDown) this.spineBoy.body.setVelocityX(-300)
-		// if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 	}
 
 	/* END-USER-CODE */
@@ -343,7 +328,7 @@ class Jeu extends S {
 		text_2.setStyle({ "color": "#000000ff", "fontSize": "96px" });
 
 		// rectangle_9
-		const rectangle_9 = this.add.rectangle(7857, -354, 128, 128);
+		const rectangle_9 = this.add.rectangle(7482, -840, 128, 128);
 		rectangle_9.scaleX = 1.562311471077136;
 		rectangle_9.scaleY = 1.5150110407617778;
 		rectangle_9.isFilled = true;
@@ -939,6 +924,11 @@ class Jeu extends S {
 
 	}
 
+
+	setAnimation(animation, loop = false) {
+		this.spineBoy.play(animation, loop)
+	}
+
 	createPlatformes() {
 		const p1 = this.physics.add.existing(this.rectangle);
 		const p2 = this.physics.add.existing(this.rectangle_1);
@@ -960,8 +950,15 @@ class Jeu extends S {
 	}
 
 	createSpineBoy(startAnim = 'idle') {
+
+
 		const spineBoy = this.add.spine(110, 547, SPINEBOY_KEY, startAnim, true)
+		spineBoy.customParams = {
+			animation: 0,
+		}
+
 		spineBoy.setDepth(1)
+		spineBoy.velocityBonus = 0;
 		// spineBoy.setSize(280, 680);
 		this.physics.add.existing(spineBoy);
 		// spineBoy.body.allowGravity = false
@@ -1004,94 +1001,48 @@ class Jeu extends S {
 	update() {
 		const { right, left, up, down, space, A, Z, E, R, TAB } = this.keyboard
 
-				if (right.isDown) this.spineBoy.body.setVelocityX(500)
-		if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
-		if (Phaser.Input.Keyboard.JustDown(space)) this.spineBoy.body.setVelocityY(-600);
+		// if (left.isDown) {
+		// 	this.spineBoy.body.setVelocityX(-800);
+		// 	this.spineBoy.play('walk', true);
+		// } else if (right.isDown, true) {
+		// 	this.spineBoy.body.setVelocityX(800);
+		// 	this.spineBoy.play('walk', true);
+		// }
+		// else {
+		// 	this.spineBoy.body.setVelocityX(0);
+		// 	this.spineBoy.play('idle');
+		// }
 
-        if(this.rect.contains(this.spineBoy.x, this.spineBoy.y)) {
-			this.spineBoy.body.velocity.x = this.spineBoy.body.velocity.x / 2
-			this.spineBoy.body.velocity.y -= 10
+		if (Phaser.Input.Keyboard.JustDown(right)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 10
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+			this.spineBoy.body.velocity.x = 500
+		} else if (Phaser.Input.Keyboard.JustUp(right)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 3
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+			this.spineBoy.body.velocity.x = 0
 		}
 
-    // const size = this.animationNames.length
-    const startAnim = this.spineBoy.getCurrentAnimation().name
-    const bounds = this.spineBoy.getBounds()
-    const width = bounds.size.x
-    const height = bounds.size.y
-    let velocityR;
-    let walk2 = false;
 
-    if (A.isDown && startAnim !== 'shoot') {
-      this.spineBoy.play('shoot')
-    }
+		if (Phaser.Input.Keyboard.JustDown(space)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 2
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+		}
 
-    // if (TAB.isDown && startAnim !== 'run') {
-      // this.spineBoy.play('run')
-    // }
+		if (Phaser.Input.Keyboard.JustDown(A)) {
+			// let index = (this.spineBoy.customParams.animation += 1)
+			let index = 9
+			let animation = animations[index % animations.length]
+			this.setAnimation(animation, true)
+		}
 
-    if (right.isDown) {
 
-      if (startAnim === 'jump') return;
-
-      if (startAnim !== 'walk' && walk2 === false) {
-        //   this.spineBoy.body.setSize(280, 680)
-      if (TAB.isDown) {
-          this.spineBoy.body.setVelocityX(1000)
-          if (startAnim !== 'run') {
-          this.spineBoy.play('run')
-          }
-        } else {
-          this.spineBoy.body.setVelocityX(500)
-          if (startAnim !== 'walk') {
-          this.spineBoy.play('walk')
-          }
-        }
-        //   this.spineBoy.scaleX = 0.5;
-        //   this.spineBoy.body.setOffset(0 , 0)
-          this.spineBoy.on('complete', (spine) => {
-          this.spineBoy.play('idle');
-          this.spineBoy.body.setVelocityX(0)
-        })
-      }
-    }
-
-    if (left.isDown) {
-
-      if (startAnim === 'jump') return;
-      walk2 = true;
-      if (startAnim !== 'walk' && walk2 === true) {
-      if (TAB.isDown) {
-          this.spineBoy.body.setVelocityX(-800)
-          if (startAnim !== 'run') {
-          this.spineBoy.play('run')
-          }
-        } else {
-          this.spineBoy.body.setVelocityX(-500)
-          if (startAnim !== 'walk') {
-          this.spineBoy.play('walk')
-          }
-        }
-        //   this.spineBoy.scaleX = -0.5;
-        //   this.spineBoy.body.setOffset(280 , 0)
-          this.spineBoy.on('complete', (spine) => {
-          this.spineBoy.play('idle');
-          this.spineBoy.body.setVelocityX(0)
-          walk2 = false;
-        })
-      }
-    }
-
-    if (space.isDown) {
-      if (startAnim !== 'jump') {
-        this.spineBoy.play('jump');
-        this.spineBoy.on('complete', (spine) => {
-          this.spineBoy.play('idle');
-        })
-      }
-    }
-		// if (right.isDown) this.spineBoy.body.setVelocityX(300)
-		// if (left.isDown) this.spineBoy.body.setVelocityX(-300)
-		// if (Phaser.Input.Keyboard.JustDown(A)) console.log("AAAAAAAAAAAAAA");
 	}
 
 	/* END-USER-CODE */
