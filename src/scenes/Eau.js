@@ -73,24 +73,51 @@ class Eau extends Phaser.Scene {
 		createAligned(this, totalWidth, "mid_background", 0.5)
 
 
+		var bubbles = this.physics.add.group({
+			velocityY: -10,
+			allowGravity: false
+		});
+
+
+		// bubbles.getChildren().forEach(function (enemy) {
+		// 	// You need to use the `body` methods because these are Sprites (not ArcadeSprites)
+		// 	enemy.body.setBounceX(1);
+		// 	enemy.body.setCollideWorldBounds(true);
+		// 	enemy.body.velocity.x = 40;
+		// }, this);
+
+
 		for (let index = 0; index < 200; index++) {
 			const random_x = Phaser.Math.Between(0, width * 20);
 			const random_y = Phaser.Math.Between(0, height);
 
 			// const element = array[index];
-			this.add.image(random_x, random_y, 'bubble').setAlpha(0.8)
+			bubbles.add(this.add.image(random_x, random_y, 'bubble').setAlpha(0.8));
 			
 		}
 
 
 
         const n = this.physics.add.existing(this.nemo);
-		n.body.setBounce(20, 20);
+		n.body.setBounce(1, 1);
 		n.body.setDrag(0.9);
 		n.body.setVelocityX(500)
 		this.nemo.setDepth(10)
 		this.cameras.main.startFollow(this.nemo, false, 1, 1, -400);
+		this.physics.add.overlap(this.nemo, bubbles, this.spriteHitHealth);
 
+	}
+
+	spriteHitHealth(sprite, health) {
+		//  Hide the sprite
+		// healthGroup.killAndHide(health);
+
+		//  And disable the body
+		// health.body.enable = false;
+		health.setAlpha(0)
+
+		//  Add 10 health, it'll never go over maxHealth
+		// currentHealth = Phaser.Math.MaxAdd(currentHealth, 10, maxHealth);
 	}
 
 	update() {
