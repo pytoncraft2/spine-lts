@@ -27,6 +27,11 @@
                 "key": "mid_background"
             },
             {
+                "url": "assets/nemo.png",
+                "type": "image",
+                "key": "nemo"
+            },
+            {
                 "url": "assets/sea_background.png",
                 "type": "image",
                 "key": "sea_background"

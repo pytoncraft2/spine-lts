@@ -13,11 +13,26 @@
             "id": "2c62bbc3-e50a-49e0-9a1d-6f03d5b365f6",
             "label": "rectangle_1",
             "components": [],
-            "x": -295,
-            "y": 118,
+            "x": -228,
+            "y": 128,
             "isFilled": true,
             "width": 128,
             "height": 128
+        },
+        {
+            "type": "Image",
+            "id": "bdbd9872-5ad3-40f8-9745-46514f262def",
+            "label": "nemo",
+            "scope": "PUBLIC",
+            "components": [],
+            "texture": {
+                "key": "nemo"
+            },
+            "x": 91,
+            "y": 378,
+            "scaleX": 0.32087044107078544,
+            "scaleY": 0.32087044107078544,
+            "flipX": true
         }
     ],
     "plainObjects": [],

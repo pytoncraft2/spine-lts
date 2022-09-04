@@ -23,6 +23,10 @@ class Eau extends Phaser.Scene {
 	constructor() {
 		super("Eau");
 
+		/** @type {Phaser.GameObjects.Image} */
+		this.nemo;
+
+
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
@@ -32,11 +36,20 @@ class Eau extends Phaser.Scene {
 	editorCreate() {
 
 		// rectangle_1
-		const rectangle_1 = this.add.rectangle(-295, 118, 128, 128);
+		const rectangle_1 = this.add.rectangle(-228, 128, 128, 128);
 		rectangle_1.isFilled = true;
+
+		// nemo
+		const nemo = this.add.image(91, 378, "nemo");
+		nemo.scaleX = 0.32087044107078544;
+		nemo.scaleY = 0.32087044107078544;
+		nemo.flipX = true;
+
+		this.nemo = nemo;
 
 		this.events.emit("scene-awake");
 	}
+
 
 	/* START-USER-CODE */
 
@@ -59,6 +72,14 @@ class Eau extends Phaser.Scene {
 		createAligned(this, totalWidth, "farground", 0.25)
 		createAligned(this, totalWidth, "mid_background", 0.5)
 
+
+        const n = this.physics.add.existing(this.nemo);
+		n.body.setBounce(20, 20);
+		n.body.setDrag(0.9);
+		n.body.setVelocityX(500)
+		this.nemo.setDepth(10)
+		this.cameras.main.startFollow(this.nemo, false, 1, 1, -400);
+
 	}
 
 	update() {
@@ -72,6 +93,19 @@ class Eau extends Phaser.Scene {
 		if (this.cursors.right.isDown) {
 			cam.scrollX += speed
 		}
+
+
+		if (Phaser.Input.Keyboard.JustDown(this.cursors.space)) {
+			this.nemo.body.setVelocityY(-200)
+			// this.nemo.body.setDrag(40);
+		}
+
+		if (Phaser.Input.Keyboard.JustDown(this.cursors.space)) {
+			this.nemo.body.setVelocityY(0)
+			// this.nemo.body.setDrag(40);
+		}
+
+
 
 
 	}
