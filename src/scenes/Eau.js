@@ -73,6 +73,17 @@ class Eau extends Phaser.Scene {
 		createAligned(this, totalWidth, "mid_background", 0.5)
 
 
+		for (let index = 0; index < 200; index++) {
+			const random_x = Phaser.Math.Between(0, width * 20);
+			const random_y = Phaser.Math.Between(0, height);
+
+			// const element = array[index];
+			this.add.image(random_x, random_y, 'bubble').setAlpha(0.8)
+			
+		}
+
+
+
         const n = this.physics.add.existing(this.nemo);
 		n.body.setBounce(20, 20);
 		n.body.setDrag(0.9);
